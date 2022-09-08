@@ -1,0 +1,60 @@
+<style>
+    .body{
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(120deg,  #8e44ad, #2980b9 );
+        height: 100vh;
+        overflow: hidden;
+
+    }
+
+    .background{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width 400px;
+        background: white;
+        border-radius: 10px;
+    }
+
+    .center1{
+        text-align: center;
+        color: purple;
+    }
+    .top{
+        text-align: center;
+        color: Red;
+        font-family: "Courier New"
+    }
+    
+    </style>    
+<body class="body">
+    {% extends "account/base.html" %}
+
+{% load i18n %}
+
+    {% block head_title %}{% trans "Signup" %}{% endblock %}
+
+    {% block content %}
+<div class="background">
+    
+
+    <h1 class='top'>{% trans "Sign Up" %}</h1>
+
+    <p class='center1'>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <div class="ui grid">
+        <div class="center1">
+        <form class="" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+        </form>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

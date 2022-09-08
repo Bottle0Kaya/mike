@@ -1,0 +1,22 @@
+
+{%include 'authentication/navbar.html'%}
+<div class='container'>
+
+{% block content %}
+
+
+<h1>Plant Information</h1>
+{% for plants in plant_info %}
+<strong>{{plants.Plant_name}}</strong>
+
+<ul>
+    <li>{{plants.Color}}</li>
+    <li>{{plants.Plant_type}}</li>
+    <li>{{plants.Origin}}</li>
+</ul>
+{% endfor %}
+
+</div>
+{% endblock %}
+<br/><br/>
+Footer

@@ -1,0 +1,10 @@
+{%extends 'authentication/base.html'%}
+{%block content %}
+<center>
+<h1>Info Page</h1>
+{% for event in event_list %}
+{{ event }}
+{% endfor %}
+Copyright (c) {{current_year}}
+</center>
+{%endblock%}

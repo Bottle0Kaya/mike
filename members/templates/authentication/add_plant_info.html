@@ -1,0 +1,20 @@
+{%extends 'authentication/base.html'%}
+{%block content %}
+<center>
+<h1>Please Enter Your Plant's Info</h1>
+{% if submitted %}
+    Your Info was submitted successfully!
+{% else %}
+
+
+<form action='' method='POST'>
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type='submit' value='Submit' class='btn btn-success'>
+
+
+</form>
+{% endif %}
+
+</center>
+{%endblock%}
